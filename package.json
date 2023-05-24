@@ -1,0 +1,36 @@
+{
+  "name": "lifegoals",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "migrate": "node-pg-migrate",
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --bail",
+    "test:coverage": "npm test -- --coverage",
+    "open:coverage": "npm run test:coverage && open ./coverage/index.html"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.7.14",
+    "axios": "^1.4.0",
+    "express": "^4.18.2",
+    "jest-junit": "^16.0.0",
+    "node-pg-migrate": "^6.2.2",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.5.0",
+    "dotenv": "^16.0.3",
+    "eslint": "^8.40.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jest": "^27.2.1",
+    "jest": "^29.5.0"
+  },
+  "jest": {
+    "verbose": true,
+    "transform": {},
+    "testEnvironment": "jest-environment-node",
+    "testPathIgnorePatterns": [
+      "config/test.js"
+    ]
+  }
+}
