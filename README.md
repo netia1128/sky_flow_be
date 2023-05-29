@@ -2,7 +2,7 @@
 
 ## About This Service
 This is a simple Node.js backend application that ingests flight data from TravelPayouts API and allows users to retrieve that data.
-This service was created to showcase my coding style.
+This service was created to showcase my coding style. 
 
 ## To Do List
 - Finish writing tests

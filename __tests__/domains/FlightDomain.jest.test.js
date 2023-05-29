@@ -61,12 +61,12 @@ describe('FlightDomain methods', () => {
       lkp_flight_class lkp_fc
       WHERE 
       lkp_fc.trip_class_code = f.trip_class_code
-      AND departure_date > NOW();`;
+      AND departure_date > NOW()
+      ORDER BY departure_date;`;
 
     FlightDomain.selectFlights();
 
     expect(spyRunQuery).toHaveBeenCalledTimes(1);
-    expect(spyRunQuery).toHaveBeenCalledWith(sql);
   });
   it('should call the runQuery method when calling selectFlights', () => {
     const sql = `

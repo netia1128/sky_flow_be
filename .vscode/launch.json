@@ -11,6 +11,14 @@
           "runtimeVersion": "16",
           "program": "${workspaceFolder}/server.js",
           "env": {
+            "POSTGRES_CONNECTION_STRING": "localhost",
+            "POSTGRES_DATABASE": "lifegoals_database",
+            "POSTGRES_PASSWORD": "",
+            "POSTGRES_PORT": 5432,
+            "POSTGRES_USER": "admin",
+            "TRAVELPAYOUTS_HOST": "https://api.travelpayouts.com",
+            "TRAVELPAYOUTS_TOKEN": "66fa8e39dffe1cc62e8b228cb48328ae",
+            "TRAVELPAYOUTS_MARKER": "443790"
           },
           "restart": true
       }
