@@ -12,13 +12,21 @@ export const setupRoutes = (app) => {
   });
 
   app.get('/flights', async (req, res) => {
-    const results = await facade.selectFlights();
-    res.status(200).json(results);
+    try {
+      const results = await facade.selectFlights();
+      res.status(200).json(results);
+    } catch (err) {
+      res.status(500).json(err.message);
+    }
   });
 
   app.post('/jobs/flightingest', async (req, res) => {
-    const result = await facade.ingestFlights();
-    res.status(200).json(result);
+    try {
+      const result = await facade.ingestFlights();
+      res.status(200).json(result);
+    } catch (err) {
+      console.log(err);
+    }
   });
 
   app.get('*', (req, res) => {

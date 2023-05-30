@@ -1,0 +1,50 @@
+definitions:
+  200Flights:
+    type: array
+    example:
+      - id: 34
+        priceUsd: 99
+        tripClassName: "Economy"
+        origin: "TJM"
+        destination: "LED"
+        departureDate: "2023-05-30T06:00:00.000Z"
+        md5Hash: "41181a138b1eb1eb4c65ba235c370df4"
+        returnDate: "2023-06-03T06:00:00.000Z"
+        duration: 395
+        distance: 2032
+      - id: 36
+        priceUsd: 99
+        tripClassName: "Economy"
+        origin: "AER"
+        destination: "KZN"
+        departureDate: "2023-05-31T06:00:00.000Z"
+        md5Hash: "dace37826a41d255df231d5a0ae350cf"
+        returnDate: "2023-06-04T06:00:00.000Z"
+        duration: 440
+        distance: 1508
+  500Flights:
+    type: string
+    example: "error: column f.resdfsdturn_date does not exist"
+  200FlightIngest:
+  404RouteNotFound:
+/flights:
+  get:
+    description: GET flights
+    responses:
+        200Flights:
+          description: Returns all flights in database
+          schema:
+            $ref: '#/definitions/200Flights'
+        500Flights:
+          description: Error returned if critical error occurs, like database conneciton breaks
+          schema:
+            $ref: '#/definitions/500Flights'
+/jobs/flightsingest:
+  post:
+    description: Kick off flight ingest job
+    responses:
+      200FlightIngest:
+        description: Returns a 200 if ingest completes successfully
+        schema:
+          $ref: '#/definitions/200FlightIngest'
+      
