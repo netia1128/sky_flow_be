@@ -70,31 +70,31 @@ describe('FlightDomain methods', () => {
   });
   it('should call the runQuery method when calling selectFlights', () => {
     const sql = `
-      INSERT INTO flights 
-      (
-        departure_date,
-        destination,
-        distance,
-        duration,
-        md5_hash,
-        origin,
-        price_usd,
-        return_date,
-        trip_class_code
-        ) 
-        VALUES (
-          $1,
-          $2,
-          $3,
-          $4,
-          $5,
-          $6,
-          $7,
-          $8,
-          $9
-        )
-      ;
-    `;
+        INSERT INTO flights 
+        (
+          departure_date,
+          destination,
+          distance,
+          duration,
+          md5_hash,
+          origin,
+          price_usd,
+          return_date,
+          trip_class_code
+          ) 
+          VALUES (
+            $1,
+            $2,
+            $3,
+            $4,
+            $5,
+            $6,
+            $7,
+            $8,
+            $9
+          )
+        ;
+      `;
 
     const values = [
       "2023-06-14",
