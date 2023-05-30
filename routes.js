@@ -11,11 +11,6 @@ export const setupRoutes = (app) => {
     return next();
   });
 
-  app.get('/', async (req, res) => {
-    console.log(`hello world`);
-    res.status(200).json('HELLO WORLD!');
-  });
-
   app.get('/flights', async (req, res) => {
     const results = await facade.selectFlights();
     res.status(200).json(results);
