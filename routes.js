@@ -21,11 +21,11 @@ export const setupRoutes = (app) => {
   });
 
   app.post('/jobs/flightingest', async (req, res) => {
-    try {
-      const result = await facade.ingestFlights();
+    const result = await facade.ingestFlights();
+    if (result.success) {
       res.status(200).json(result);
-    } catch (err) {
-      console.log(err);
+    } else {
+      res.status(result.errorCode ?? 500).send();
     }
   });
 
