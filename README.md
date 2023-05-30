@@ -14,9 +14,11 @@ Note - these instructions assume that you already have:
 - That you use the VS Code IDE and know how to use its built in debugger
 If you do not have these building blocks in place, please download these resources before continuing.
 
-Step 1: Send me a message and ask me to share my ENV file with you
-Step 2: Drop the .env file into the root directory for the project
-Step 3: Create the database. 
+Step 1: Clone the repository into a directory of your choosing.
+Step 2: Send me a message and ask me to share my ENV file contents with you.
+Step 3: Decode the env contents provided: `$ echo <encoded_content> | base64 -d`
+Step 3: CD into the root folder of the repository and add your .env file (paste the decodec content into it) `$ touch .env`
+Step 4: Create the database. 
 - Log into a PSQL shell via your terminal: `$ psql -d postgres`
 - Create the database `$ CREATE DATABASE skyflow_db;`
 - Optional: Create a new user for this database 
@@ -24,7 +26,7 @@ Step 3: Create the database.
    OR
    with a password `$ CREATE USER <your_desired_username> WITH ENCRYPTED PASSWORD <your_desired_password>;`
 - Grant privleges to your new (or existing) user for the new database: `$ GRANT ALL PRIVILEGES ON DATABASE skyflow_db TO <your_user_name>;`
-Step 4: Get out of the PSQL shell `$ \q`
+- Get out of the PSQL shell `$ \q`
 Step 5: Update the POSTGRES_USER, POSTGRES_PASSWORD, and DATABASE_URL in .env file as needed
 Step 6: Install the node modules `$ npm i`
 Step 7: Run migrations against database `$ npm run migrate up`
