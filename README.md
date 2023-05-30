@@ -35,6 +35,5 @@ Step 9: You should be up and running. Please review the projects swagger docs to
 
 ## To Do List
 - Finish writing tests
-- Add swagger
-- Complete the README with adequate documentation.
-- Read back through app and ensure proper error handling is in place
+- Complete swagger
+- Add architecture/sequence diagrams to README

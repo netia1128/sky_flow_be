@@ -24,27 +24,34 @@ definitions:
         distance: 1508
   500Flights:
     type: string
-    example: "error: column f.resdfsdturn_date does not exist"
+    example: "There was an error with your request"
   200FlightIngest:
-  404RouteNotFound:
+    type: string
+    example: "Ingest successful"
 /flights:
   get:
     description: GET flights
     responses:
-        200Flights:
+        200:
           description: Returns all flights in database
           schema:
             $ref: '#/definitions/200Flights'
-        500Flights:
-          description: Error returned if critical error occurs, like database conneciton breaks
+        500:
+          description: Error returned if catastrophic error occurs, like database conneciton breaks
           schema:
             $ref: '#/definitions/500Flights'
 /jobs/flightsingest:
   post:
     description: Kick off flight ingest job
     responses:
-      200FlightIngest:
+      200:
         description: Returns a 200 if ingest completes successfully
         schema:
           $ref: '#/definitions/200FlightIngest'
+      422:
+        description: Returns a 422 if one or more incoming flights was malformed and not ingested
+      500:
+        description: Error returned if catastrophic error occurs, like database conneciton breaks
+      502:
+        description: Indicates an error with the source API fetch call
       
